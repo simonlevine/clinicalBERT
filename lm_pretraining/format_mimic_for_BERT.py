@@ -11,8 +11,11 @@ from heuristic_tokenize import sent_tokenize_rules
 
 
 # update these constants to run this script
-OUTPUT_DIR = '/PATH/TO/OUTPUT/DIR' #this path will contain tokenized notes. This dir will be the input dir for create_pretrain_data.sh
-MIMIC_NOTES_FILE = 'PATH/TO/MIMIC/DATA' #this is the path to mimic data if you're reading from a csv. Else uncomment the code to read from database below
+# OUTPUT_DIR = '/PATH/TO/OUTPUT/DIR' #this path will contain tokenized notes. This dir will be the input dir for create_pretrain_data.sh
+# MIMIC_NOTES_FILE = 'PATH/TO/MIMIC/DATA' #this is the path to mimic data if you're reading from a csv. Else uncomment the code to read from database below
+
+OUTPUT_DIR = '/Users/simon/autoicd/clinicalBERT/notes_formatted'
+MIMIC_NOTES_FILE = '/Users/simon/autoicd/MIMICdata/mimiciii/1.4/NOTEEVENTS.csv'
 
 
 #setting sentence boundaries
@@ -97,6 +100,7 @@ print('Begin reading notes')
 # notes = pd.read_sql_query(notes_query, con)
 notes = pd.read_csv(MIMIC_NOTES_FILE, index_col = 0)
 #print(set(notes['category'])) # all categories
+notes.columns = map(str.lower, notes.columns)
 
 
 notes = notes[notes['category'] == category]
