@@ -1,4 +1,4 @@
-import psycopg2
+# import psycopg2
 import pandas as pd
 import sys
 import spacy
@@ -14,8 +14,9 @@ from heuristic_tokenize import sent_tokenize_rules
 # OUTPUT_DIR = '/PATH/TO/OUTPUT/DIR' #this path will contain tokenized notes. This dir will be the input dir for create_pretrain_data.sh
 # MIMIC_NOTES_FILE = 'PATH/TO/MIMIC/DATA' #this is the path to mimic data if you're reading from a csv. Else uncomment the code to read from database below
 
-OUTPUT_DIR = '/Users/simon/autoicd/clinicalBERT/notes_formatted'
-MIMIC_NOTES_FILE = '/Users/simon/autoicd/MIMICdata/mimiciii/1.4/NOTEEVENTS.csv'
+OUTPUT_DIR = '/Users/simon/GitHub/clinicalBERT/formatted_notes'
+# '/Users/simon/autoicd/MIMICdata/mimiciii/1.4/NOTEEVENTS.csv'
+MIMIC_NOTES_FILE = '/Users/simon/GitHub/clinicalBERT/lm_pretraining/sample_data.csv'
 
 
 #setting sentence boundaries
